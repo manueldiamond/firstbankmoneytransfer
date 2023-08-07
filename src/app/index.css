@@ -1,0 +1,66 @@
+/* The Base Configuration for tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Example usage of font styles in your HTML */
+/* You can modify your HTML elements with these classes */
+
+*{
+  @apply font-primary font-medium;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600; /* semibold */
+  line-height: 95%;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 700; /* bold */
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Add more styles for other elements as needed */
+
+/* Additional styles for your website */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Add more custom styles for your website */
+.centered{
+  @apply flex items-center justify-center;
+}
+.hover-underline{
+  @apply after:h-[1px] after:w-full after:bg-current 
+          after:bottom-0 after:left-0
+          after:scale-0 relative after:absolute 
+          after:origin-bottom-left
+          duration-500
+          after:transition-transform
+          after:duration-300
+          hover:after:scale-100;
+          
+}
+.button-hover{
+  @apply after:absolute after:bg-transparent after:origin-left
+            after:h-full after:left-0 after:top-0 after:w-full after:scale-x-0 
+            after:transition-all
+            after:duration-500 
+            ease-[cubic-bezier(.0,1,1,0)]
+            hover:after:bg-black hover:after:scale-100 
+            after:rounded-full 
+            after:mix-blend-soft-light
+            overflow-clip  relative ;
+  
+}
