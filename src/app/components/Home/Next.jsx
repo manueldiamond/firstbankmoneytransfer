@@ -1,15 +1,12 @@
-"use client" 
-import { countries, maxWidth } from "../../consts";
+
 import { CountryFlagCard,PatternBg } from "../"
 import Image from "next/image";
-import {useState } from "react";
 
-import Vector6 from "src/app/assets/Vector6.svg";
+
 import Vector3 from "src/app/assets/Vector3.svg";
 import Vector5 from "src/app/assets/Vector5.svg";
-import Vector2 from "src/app/assets/vectorline2.svg";
-import Vector from "src/app/assets/vectorblueside.svg";
-import Vectorstraight from "src/app/assets/vectorlinestraight.svg";
+
+import MoneyTransfer from "./MoneyTransfer";
 
 
 //next consts
@@ -18,208 +15,84 @@ let bluesideMainText = "Receive MONEY with over 8+ currency globally";
 const body =
   "Repeat Your Previous Transfers - Save The Details, And Make Your Monthly Payments Easier.";
 
-const mainText = `SEND MONEY ACCROSS COUNTRIES NEAR YOU`;
-const bgBluePlace = {
-  backgroundImage: `url(${Vector})`,
-  backgroundRepeat: `contain`,
-};
+const mainText = `SEND MONEY| ACROSS COUNTRIES| NEAR YOU`;
 
-const currencies = [
-  { name: "USD", country: "USA" },
-  { name: "NGN", country: "Nigeria" },
-  { name: "GHS", country: "Ghana" },
-  { name: "XAF", country: "Senegal" },
-  { name: "XOF" },
-  { name: "EUR" },
-];
-const country = [
-  { name: "Zambia" },
-  { name: "Ghana" },
-  { name: "Benin Republic" },
-  { name: "Guinea" },
-  { name: "Senegal" },
-  { name: "Nigeria" },
-  { name: "DR Congo" },
-];
 
 const Next = () => {
 
-  const headingStyle = {
-    fontSize: maxWidth('md')? "36px" : "60px",
-    // Other styles
-  };
-
-
-  const [selectedCurrency, setSelectedCurrency] = useState("");
-  const [exchangeRate, setExchangeRate] = useState("")
-  const handleCurrencyChange = (event) => {
-    setSelectedCurrency(event.target.value);
-    // Do whatever you want with the selected currency value
-    const newExchangeRate = Math.random() * 100;
-    setExchangeRate(newExchangeRate)
-  };
-
-  const [selectedCountry, setSelectedCountry] = useState("");
-
-  const handleCountryChange = (occurence) => {
-    setSelectedCountry(occurence.target.value);
-  };
-
-
-
   return (
     <div>
-      <PatternBg  opacity={.05} className="grid md:flex md:flex-col bg-[#031725] pl-3">
-        <div className="pt-6 pl-3 pr-3 text-white w-full md:w-1/2">
-          <div className="pb-20">
-            <h1 className="text-xl uppercase">{bluesideMainText}</h1>
-            <p className="text-sm text-[#CCD8E0]">{body}</p>
+      <div className="flex lg:flex-row flex-col min-h-[58rem]">
+        
+        <PatternBg x={-8} opacity={.05} className="bg-[#031725] text-white w-full h-full centered">
+          <div className="pt-6 pl-3 lg:pl-[5rem]">
+          <div className="pb-[14rem] max-w-[28rem]">
+            <h1 className="text-xl font-black uppercase">{bluesideMainText}</h1>
+            <p className="lg:text-[1.125rem] text-sm text-[#CCD8E0]">{body}</p>
           </div>
-          <div>
-            <div className="">
-              <Image src={Vector2}  className="translate-x-8 translate-y-64" />
-              <CountryFlagCard
-                dark
-                cc="bj"
-                className="translate-y-20 translate-x-32 "
-              />
-            </div>
-            <div className="">
-              <Image
-                src={Vectorstraight}
-                style={{
-                  transform: "translateX(32rem) translateY(9.5rem)", // You can adjust the value (24rem) as needed
-                }}
-                className=""
-              />
-              <div
-                style={{
-                  transform: "translateX(28rem) translateY(-3rem)", // You can adjust the value (24rem) as needed
-                }}
-              >
-                <CountryFlagCard dark cc="gh" />
+          <div className="pb-[15rem] ">
+
+
+            <h1 className="max-w-[35rem] w-fit max-h-[10rem] relative max-md:text-[2.5rem] text-[3.5rem]" >
+              {mainText.split("|").map(text=><div className="font-black">{text}</div>)}
+              {/* Moved floating card here to properly orient with the text */}
+              <div className="w-fit h-fit absolute top-0 left-[8%] -translate-y-full">
+              
+                <svg width="92" height="149" viewBox="0 0 92 149" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path id="Vector 2" d="M92 1H1V149" stroke="currentColor" stroke-dasharray="6 6"/>
+                </svg>
+
+                <CountryFlagCard dark  cc="bj"
+                  className="top-0 right-0 translate-x-full -translate-y-1/2"
+                />
               </div>
-            </div>
-            <h1
-              className=""
-              style={headingStyle}
-            >
-              {mainText}
+
+              <div className="absolute right-[10%] -translate-y-full top-[2.4rem] lg:top-[3.4rem]">
+
+                <svg width="2" height="148" viewBox="0 0 2 148" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path id="Vector 1" d="M1 0V148" stroke="currentColor" stroke-dasharray="6 6"/>
+                </svg>
+
+                <CountryFlagCard dark cc="gh" className="top-0 -translate-y-full -translate-x-1/2"/>
+              </div>
+
+              <div className="absolute bottom-[1.12rem] translate-y-full left-[50%]" >
+                <Image  src={Vector3} />
+                <CountryFlagCard dark cc="NG"
+                  className="bottom-0 right-0 translate-x-1/2 translate-y-full"
+                />
+              </div>
+
+              <div className="absolute bottom-0 translate-y-full left-[15%]">
+                <Image src={Vector5}  />
+                <CountryFlagCard dark cc="cd" text="+6 countries"
+                 className="bottom-0 -translate-x-1/3 translate-y-full" />
+              </div>
             </h1>
 
-            <div className="bottomlayer">
-              <div className="">
-                <Image
-                  src={Vector3}
-                  className=""
-                  style={{
-                    transform: "translateX(18.5rem) translateY(-2.9rem)",
-                  }}
-                />
-                <CountryFlagCard
-                  dark
-                  cc="NG"
-                  className="bg-gray-700 text-white -translate-y-10 translate-x-80"
-                />
-              </div>
-              <div className="">
-                <Image
-                  src={Vector5}
-                  style={{
-                    transform: "translateX(4rem) translateY(-13rem)", // You can adjust the value (24rem) as needed
-                  }}
-                  className=""
-                />
-                <div
-                  style={{
-                    transform: "translateX(0rem) translateY(-13rem)", // You can adjust the value (24rem) as needed
-                  }}
-                >
-                  <CountryFlagCard
-                    dark
-                    cc="cd"
-                    text="+6 countries"
-                  />
-                </div>
-              </div>
-            </div>
           </div>
-        </div>
-        <div
-          className="yellow-side bg-[#E9B937] w-full md:w-1/2 justify-items-center justify-center text-center p-10"
-          style={{
-            backgroundImage: `url(${Vector6})`,
-            backgroundRepeat: `no-repeat`,
-          }}
-        >
-          {" "}
-          <div className="mainwrapper">
+          </div>
+        </PatternBg>
+        <PatternBg opacity={.2} x={-10} className="yellow-side bg-[#E9B937] min-w-[55%] centered h-full"  >
+          <div className="absolute top-0 right-0 mix-blend-soft-light -z-10 w-full flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="734" height="283" viewBox="0 0 734 283" fill="none">
+            <g>
+              <path d="M6.19747 -294.407C77.7386 -167.377 186.233 -15.3127 177.455 139.199C176.38 158.137 163.701 209.702 135.048 216.757C126.571 218.844 116.551 212.322 111.57 205.153C93.4617 179.095 104.691 144.492 120.99 121.65C210.499 -3.79345 410.313 82.4259 516.472 127.323C615.099 169.036 708.478 222.987 800.914 276.743" stroke="#003B65" stroke-width="12" stroke-linecap="round"/>
+            </g>
+            </svg>
+          </div>
+          <div className="mainwrapper centered flex-col gap-3 text-center p-10">
             <h1 className="text-lg text-white">
               SEND MONEY ACROSS COUTRIES NEAR YOU
             </h1>
-            <div className="startofwhite bg-white p-5 pt-7">
-              <div className="bg-[#CCD8E0] p-2">
-                <p>Wooah! 🎁 Fully Loaded Bank Transfer Goalie</p>
-              </div>
-
-              <div>
-                <p className="text-left text-[#545454] text-lg font-medium">
-                  You send exactly
-                </p>
-                <div className="pb-2">
-                  <select
-                    id="country"
-                    value={selectedCountry}
-                    onChange={handleCountryChange}
-                    className="w-full text-right bg-white border-2 rounded-lg border-gray-600 p-2"
-                  >
-                    <option value="" disabled></option>
-                    {countries.map((country) => (
-                      <option key={country.name} value={country.name}>
-                        {country.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <select
-                    id="currency"
-                    value={selectedCurrency}
-                    onChange={handleCurrencyChange}
-                    className="w-full p-2 text-right bg-white border-2 rounded-lg border-gray-600 p-2"
-                  >
-                    <option value="USD" disabled></option>
-                    {currencies.map((currency) => (
-                      <option key={currency.name} value={currency.name}>
-                        {currency.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="flex flex-wrap justify-between">
-
-                      {exchangeRate !== null && (
-                        <>
-                        <div>
-                        <p className="text-right">{exchangeRate}</p>
-                        </div>
-                        <div>
-                        <p className="text-left underline">Exchange Rate </p>
-                        </div>
-                        {/* <div className="fill-black ">
-                        <p className="border-black border-2 text-white  rounded-full ">{String.fromCharCode(0x21)}</p>
-                        </div> */}
-                        </>
-                      )}
-              </div>
-            </div>
+           <MoneyTransfer/>
           </div>
-        </div>
-      </PatternBg>
+        </PatternBg>
+      </div>
     </div>
   );
 };
 
 export default Next;
+
+

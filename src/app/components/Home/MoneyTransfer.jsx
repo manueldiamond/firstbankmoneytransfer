@@ -7,15 +7,21 @@ import {BsFillExclamationCircleFill} from 'react-icons/bs'
 const MoneyTransfer = () => {
  
   const [transferCountries, setTransferCountry] = useState({sender:"ng",recipient:'gh'});
- 
+  const [amt,setAmt]=useState(0)
+  const [conversion,setConversion]=useState({})
+
+
+  const convert=()=>setConversion(convertCurrency(amt,transferCountries.sender,transferCountries.recipient))
+
   const handleCountryChange = (occurence,forWho) => { 
     setTransferCountry(prev=>({...prev, [forWho]:occurence.target.value}));
+    convert()
   };
 
-  const [conversion,setConversion]=useState({})
   const handleAmtChange=event=>{
-    setConversion(convertCurrency(event.target.value,transferCountries.sender,transferCountries.recipient))
-  }
+    setAmt(event.target.value)
+    convert()
+}
 
   return (
     <PatternBg className="max-w-[37.5rem] bg-light-bg border-b-primary-deep border-b-4 border-solid " >

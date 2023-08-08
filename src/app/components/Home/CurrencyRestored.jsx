@@ -128,7 +128,7 @@ const FloatingTransfer=({transfer, date=new Date(), className=""})=>{
           <TbArrowRight strokeWidth={2.5} className='w-5 h-5'/>
           <div className="div items-end gap-1 flex">
             <h6 className=' font-bold text-[1.125rem] '>{
-            convertCurrency(transfer.amt,transfer.from,transfer.to)}</h6>
+            convertCurrency(transfer.amt,transfer.from,transfer.to).amt}</h6>
             <span className='text-primary-light' >{getCurrencyCode(transfer.to)}</span>
           </div>
         </div>

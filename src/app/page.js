@@ -1,4 +1,4 @@
-import {Header} from './components'
+import {Footer, Header} from './components'
 import { Homepage } from './components/pages'
 
 import styles from './index.css'
@@ -8,6 +8,7 @@ export default function Home() {
     <div className='App'>
       <Header/>
       <Homepage/>
+      <Footer/>
     </div>
   )
 }

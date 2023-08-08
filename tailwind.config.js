@@ -27,10 +27,14 @@ module.exports = {
         "primary-lighter":"#CCD8E0",
         secondary:"#F0BD2D",
         gray:"#323232",
+        "gray-2":"#767676",
         dark:"#191919",
         specialgray: "#D6D6D6",
         "light-bg":"#F1F0F1",
       },
+    borderWidth:{
+      "1": "1px",
+    },
      boxShadow:{
       normal:"0px 2px 60px 0px rgba(0, 59, 101, 0.10)",
      }
@@ -38,3 +42,5 @@ module.exports = {
   },
   plugins: [],
 }
+
+//#767676

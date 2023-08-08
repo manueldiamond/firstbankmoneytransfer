@@ -22,7 +22,14 @@ const useResize=()=>{
 }
 
 // placeholder for currencyconversion API 
-const convertCurrency=(amt,fromCc,toCc)=>(amt*(.015)).toFixed(2);
+const convertCurrency=(amt,fromCc,toCc)=>{
+    const rate=(Math.random()*100).toFixed(4)
+    return ({
+        amt:(amt*rate).toFixed(2),
+        rate:rate,
+        commission:.230,
+    })
+}
 
 // returns all necessary country data
 const getCountry=cc=>{
@@ -34,6 +41,7 @@ const getCountry=cc=>{
         currency:{
             code: countryCurrency.code,
             name: countryCurrency.name,
+            
         }
         
     })
