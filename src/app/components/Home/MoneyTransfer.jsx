@@ -10,7 +10,7 @@ const MoneyTransfer = () => {
   const [amt,setAmt]=useState(0)
   const [conversion,setConversion]=useState({})
 
-
+// a
   const convert=()=>setConversion(convertCurrency(amt,transferCountries.sender,transferCountries.recipient))
 
   const handleCountryChange = (occurence,forWho) => { 
@@ -22,7 +22,7 @@ const MoneyTransfer = () => {
     setAmt(event.target.value)
     convert()
 }
-
+ 
   return (
     <PatternBg className="max-w-[37.5rem] bg-light-bg border-b-primary-deep border-b-4 border-solid " >
       <div className=" p-5 pt-7 flex flex-col gap-5">
